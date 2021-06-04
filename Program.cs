@@ -27,6 +27,8 @@ namespace mylist
             list.Add("cat");
 
             list.PrintAll();
+            list.Clear();
+            list.PrintAll();
         }
     }
 }
