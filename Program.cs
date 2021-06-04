@@ -6,7 +6,7 @@ namespace mylist
     {
         static void Main(string[] args)
         {
-            mylist list = new mylist();
+            mylist<string> list = new mylist<string>();
             Console.WriteLine(list.Count());
 
             Console.WriteLine("adding house");
