@@ -2,9 +2,9 @@ using System;
 
 namespace mylist
 {
-    class mylist
+    class mylist<T>
     {
-        private string[] _items = new string[4];
+        private T[] _items = new T[4];
 
         private int _size;
 
@@ -12,16 +12,34 @@ namespace mylist
         {
             return _size;
         }
+        
+        public T this[int i] => _items[i];
 
+   public void Indexer(int index, T value)
+   {
+       
+       if(index <0)
+       {
+           throw new IndexOutOfRangeException($"The index is out of range");
+       }
+       if (_size > _items.Length - 1)
+            {
+                T[] newT = new T[_items.Length * 2];
+                Array.Copy(_items, newT, _items.Length);
 
-        public void Add(string item)
+                _items = newT;
+            }
+            _items[index] = value;
+   }
+
+        public void Add(T item)
         {
             if (_size > _items.Length - 1)
             {
-                string[] newstring = new string[_items.Length * 2];
-                Array.Copy(_items, newstring, _items.Length);
+                T[] newT = new T[_items.Length * 2];
+                Array.Copy(_items, newT, _items.Length);
 
-                _items = newstring;
+                _items = newT;
             }
             _items[_size] = item;
             _size = _size + 1;
@@ -32,7 +50,7 @@ namespace mylist
         {
             try
             {
-                string value = _items[index];
+                T value = _items[index];
                 Console.WriteLine($"The value at index {index} is {value} ");
             }
             catch
@@ -53,9 +71,10 @@ namespace mylist
         {
             for (int p = 0; p < _items.Length; p++)
             {
-                _items[p] = "";
+                _items[p] = default(T);
             }
         }
+        
 
         public void RemoveIndex(int index)
         {
@@ -64,14 +83,14 @@ namespace mylist
             _size--;
         }
 
-        public void Insert(int index, string value)
+        public void Insert(int index, T value)
         {
 
             Console.WriteLine(_items.Length);
-            string[] newstring = new string[_items.Length + 1];
-            Array.Copy(_items, newstring, _items.Length);
-            Array.Copy(_items, index, newstring, index + 1, _items.Length - index);
-            _items = newstring;
+            T[] newT = new T[_items.Length + 2];
+            Array.Copy(_items, newT, _items.Length);
+            Array.Copy(_items, index, newT, index + 1, _items.Length - index);
+            _items = newT;
             _items[index] = value;
             _size++;
         }
