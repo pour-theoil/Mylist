@@ -27,8 +27,10 @@ namespace mylist
             list.Add("cat");
 
             list.PrintAll();
-            list.Clear();
+            list.RemoveIndex(3);
             list.PrintAll();
+
+             Console.WriteLine(list.Count);
         }
     }
 }
