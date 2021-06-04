@@ -11,20 +11,22 @@ namespace mylist
 
             Console.WriteLine("adding house");
             list.Add("house");
-    
+
 
             Console.WriteLine("adding car");
             list.Add("car");
-        
-           Console.WriteLine("adding car");
-            list.Add("car");
-          
-            Console.WriteLine("adding car");
-            list.Add("car");
-           
-            Console.WriteLine("adding car");
-            list.Add("car");
-            
+            list.Getindex(6);
+
+            Console.WriteLine("adding able");
+            list.Add("able");
+
+            Console.WriteLine("adding bat");
+            list.Add("bat");
+
+            Console.WriteLine("adding cat");
+            list.Add("cat");
+
+            list.PrintAll();
         }
     }
 }
