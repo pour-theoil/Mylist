@@ -8,35 +8,34 @@ namespace mylist
 
         private int _size;
 
-        public int Count { get; }
-
-
-        public mylist()
+        public int Count()
         {
-            _size = 0;
-            Count = _size;
+            return _size;
         }
-        
+
+
         public void Add(string item)
         {
-            if (_size > _items.Length -1)
+            if (_size > _items.Length - 1)
             {
-                string[] newstring = new string[_items.Length*2];
-                Array.Copy(_items, newstring,_items.Length);
-                
+                string[] newstring = new string[_items.Length * 2];
+                Array.Copy(_items, newstring, _items.Length);
+
                 _items = newstring;
             }
             _items[_size] = item;
             _size = _size + 1;
         }
-        
 
-        public void Getindex(int index){
-            try{
+
+        public void Getindex(int index)
+        {
+            try
+            {
                 string value = _items[index];
                 Console.WriteLine($"The value at index {index} is {value} ");
             }
-            catch 
+            catch
             {
                 Console.WriteLine("out of range");
             }
@@ -58,10 +57,23 @@ namespace mylist
             }
         }
 
-        public void RemoveIndex (int index)
+        public void RemoveIndex(int index)
         {
-            string[] removed = new string[_items.Length - 1];
-            Array.Copy(_items,index, _items,index -1 , _items.Length - index);
+
+            Array.Copy(_items, index, _items, index - 1, _size - index);
+            _size--;
+        }
+
+        public void Insert(int index, string value)
+        {
+
+            Console.WriteLine(_items.Length);
+            string[] newstring = new string[_items.Length + 1];
+            Array.Copy(_items, newstring, _items.Length);
+            Array.Copy(_items, index, newstring, index + 1, _items.Length - index);
+            _items = newstring;
+            _items[index] = value;
+            _size++;
         }
     }
 }
