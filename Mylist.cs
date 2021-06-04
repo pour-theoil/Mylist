@@ -45,7 +45,15 @@ namespace mylist
         {
             for (int i = 0; i < _size; i++)
             {
-                Console.WriteLine($"Item {i}) {_items[i]}");
+                Console.WriteLine($"Item {i + 1}) {_items[i]}");
+            }
+        }
+
+        public void Clear()
+        {
+            for (int p = 0; p < _items.Length; p++)
+            {
+                _items[p] = "";
             }
         }
     }
