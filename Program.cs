@@ -7,7 +7,7 @@ namespace mylist
         static void Main(string[] args)
         {
             mylist list = new mylist();
-            Console.WriteLine(list.Count);
+            Console.WriteLine(list.Count());
 
             Console.WriteLine("adding house");
             list.Add("house");
@@ -27,10 +27,10 @@ namespace mylist
             list.Add("cat");
 
             list.PrintAll();
-            list.RemoveIndex(3);
+            list.Insert(3, "dog");
             list.PrintAll();
 
-             Console.WriteLine(list.Count);
+             Console.WriteLine(list.Count());
         }
     }
 }
