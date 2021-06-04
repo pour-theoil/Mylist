@@ -1,3 +1,5 @@
+using System;
+
 namespace mylist
 {
     class mylist
@@ -19,11 +21,32 @@ namespace mylist
             if (_size > _items.Length -1)
             {
                 string[] newstring = new string[_items.Length*2];
-                _items.CopyTo(newstring, _items.Length);
+                Array.Copy(_items, newstring,_items.Length);
+                
                 _items = newstring;
             }
             _items[_size] = item;
             _size = _size + 1;
+        }
+        
+
+        public void Getindex(int index){
+            try{
+                string value = _items[index];
+                Console.WriteLine($"The value at index {index} is {value} ");
+            }
+            catch 
+            {
+                Console.WriteLine("out of range");
+            }
+        }
+
+        public void PrintAll()
+        {
+            for (int i = 0; i < _size; i++)
+            {
+                Console.WriteLine($"Item {i}) {_items[i]}");
+            }
         }
     }
 }
