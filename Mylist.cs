@@ -6,13 +6,14 @@ namespace mylist
     {
         private string[] _items = new string[4];
 
-        private int _size = 0;
+        private int _size;
 
         public int Count { get; }
 
 
         public mylist()
         {
+            _size = 0;
             Count = _size;
         }
         
@@ -55,6 +56,12 @@ namespace mylist
             {
                 _items[p] = "";
             }
+        }
+
+        public void RemoveIndex (int index)
+        {
+            string[] removed = new string[_items.Length - 1];
+            Array.Copy(_items,index, _items,index -1 , _items.Length - index);
         }
     }
 }
