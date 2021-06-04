@@ -67,13 +67,13 @@ namespace mylist
             }
         }
 
-        // public void Clear()
-        // {
-        //     for (int p = 0; p < _items.Length; p++)
-        //     {
-        //         _items[p] = null;
-        //     }
-        // }
+        public void Clear()
+        {
+            for (int p = 0; p < _items.Length; p++)
+            {
+                _items[p] = default(T);
+            }
+        }
         
 
         public void RemoveIndex(int index)
