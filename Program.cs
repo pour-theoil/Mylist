@@ -8,6 +8,23 @@ namespace mylist
         {
             mylist list = new mylist();
             Console.WriteLine(list.Count);
+
+            Console.WriteLine("adding house");
+            list.Add("house");
+    
+
+            Console.WriteLine("adding car");
+            list.Add("car");
+        
+           Console.WriteLine("adding car");
+            list.Add("car");
+          
+            Console.WriteLine("adding car");
+            list.Add("car");
+           
+            Console.WriteLine("adding car");
+            list.Add("car");
+            
         }
     }
 }
