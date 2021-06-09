@@ -1,13 +1,26 @@
 using System;
+using System.Collections;
+using System.Collections.Generic;
 
 namespace mylist
 {
-    class mylist<T>
+public class MyList<T> : IList<T>
     {
         private T[] _items = new T[4];
 
         private int _size;
 
+        public MyList()
+        {
+        }
+
+        int ICollection<T>.Count => throw new NotImplementedException();
+
+        public bool IsReadOnly => throw new NotImplementedException();
+
+        T IList<T>.this[int index] { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+
+// propertry
         public int Count()
         {
             return _size;
@@ -93,6 +106,53 @@ namespace mylist
             _items = newT;
             _items[index] = value;
             _size++;
+        }
+
+        public int IndexOf(T item)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void RemoveAt(int index)
+        {
+            Array.Copy(_items, index, _items, index - 1, _size - index);
+            _size--;
+        }
+
+        public bool Contains(T item)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void CopyTo(T[] array, int arrayIndex)
+        {
+            Array.Copy(_items, array, _items.Length);
+        }
+
+        public bool Remove(T item)
+        {
+            throw new NotImplementedException();
+            // int index = Array.FindIndex<T>(item);
+            // Array.Copy(_items, index, _items, index - 1, _size - index);
+            // _size--;
+        }
+
+        public IEnumerator<T> GetEnumerator()
+        {
+            return GetEnumerable().GetEnumerator();
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return GetEnumerator();
+        }
+
+        private IEnumerable<T> GetEnumerable()
+        {
+            for(int p = 0; p < _size; p++ )
+            {
+                yield return _items[p];
+            }
         }
     }
 }
