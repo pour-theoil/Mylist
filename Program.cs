@@ -6,7 +6,7 @@ namespace mylist
     {
         static void Main(string[] args)
         {
-            mylist<string> list = new mylist<string>();
+            MyList<string> list = new MyList<string>();
             Console.WriteLine(list.Count());
 
             Console.WriteLine("adding house");
@@ -31,6 +31,11 @@ namespace mylist
             list.PrintAll();
 
              Console.WriteLine(list.Count());
+
+            foreach(string t in list)
+            {
+                
+            }
         }
     }
 }
